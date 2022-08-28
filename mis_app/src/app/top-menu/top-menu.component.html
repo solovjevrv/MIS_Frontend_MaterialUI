@@ -1,0 +1,29 @@
+<nav class="user-menu" id="user-menu">
+  <div class="container">
+    <div class="row align-content-center">
+      <div class="col-lg-3 col-md-6 d-flex align-items-center">
+        <div class="user-menu-search">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="offset-lg-3 col-lg-6 offset-md-0 col-md-6 d-flex justify-content-end">
+        <div class="user-menu-notice d-flex align-items-center">
+          <a class="clickMenu" (click)="openMenu()">
+            <!-- <tui-svg src="tuiIconBellLarge" class="icon"></tui-svg> -->
+            <!-- <tui-badge size="m" [value]="17" [hoverable]="true"></tui-badge> -->
+          </a>
+        </div>
+        <div class="user-menu-main">
+          <div class="user-menu-main-block">
+            <strong class="user-menu-name">{{currentusername}}</strong>
+            <span class="user-menu-role">{{currentuserpost}} </span>
+          </div>
+          <!-- <tui-avatar text="{{currentusername}}" size="l" class="tui-space_top-1" [rounded]="true"></tui-avatar> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

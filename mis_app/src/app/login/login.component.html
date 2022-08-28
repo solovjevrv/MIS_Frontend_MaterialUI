@@ -1,0 +1,63 @@
+<div class="login-wrap">
+  <div class="login-right">
+    <img class="login-right-img" src="assets/img/logo.svg" alt="">
+    <div class="login-right-heading">
+      <h4>Медицинская</h4>
+      <h4>информационная</h4>
+      <h4>система</h4>
+    </div>
+  </div>
+  <div class="login-left">
+    <div class="login-notice">
+    </div>
+    <div class="login-left-card">
+      <form class="example-form">
+        <h4>Добро пожаловать в LibraMED</h4>
+        <p>Введите данные для входа и нажмите кнопку войти</p>
+        <div class="login-email">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Введите логин</mat-label>
+            <input matInput placeholder="ivanov_si@company.ru" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="login-password">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Введите пароль</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" class="login-btn1" (click)="submit()">Войти</button>
+      </form>
+
+
+
+
+      <!-- <form [formGroup]="registerForm">
+        <h6>Добро пожаловать в LibraMED</h6>
+        <tui-input required [(ngModel)]="userAdd.loginToAdd" name="loginToAdd" formControlName="loginValue"
+          tuiHintContent="Введите логин">
+          Логин
+          <span class="tui-required"></span>
+        </tui-input>
+        <tui-field-error formControlName="loginValue"></tui-field-error>
+        <tui-input-password formControlName="passwordValue" tuiHintContent="Показать пароль" tuiHintDirection="right"
+          required [(ngModel)]="userAdd.passwordToAdd" name="passwordToAdd">Пароль
+        </tui-input-password>
+        <tui-field-error formControlName="passwordValue"></tui-field-error>
+        <tui-checkbox-labeled formControlName="rememberMeValue">
+          <div class="example">Запомнить меня</div>
+        </tui-checkbox-labeled>
+        <button tuiButton type="button" [disabled]="registerForm.invalid" appearance="Войти" class="login-btn"
+          (click)="submit()">Войти</button>
+      </form>
+      <span class="login-tech_support">Проблемы со входом? Обратитесь в службу <a href="#">технической
+          поддержки</a></span> -->
+
+    </div>
+  </div>
+</div>

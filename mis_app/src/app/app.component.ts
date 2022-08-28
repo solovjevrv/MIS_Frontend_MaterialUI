@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AuthService } from './services/authservice.service';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'mis_app';
+  public isLogged: any;
+  title = 'app';
+  constructor(private authService: AuthService) { };
+  ngOnInit() {
+    this.isLogged = this.authService.isLoggedIn();
+  }
+  onChanged(increased: any) {
+    increased == true ? this.isLogged = true : this.isLogged = false;
+  }
 }

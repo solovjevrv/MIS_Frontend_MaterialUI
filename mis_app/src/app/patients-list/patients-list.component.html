@@ -1,0 +1,238 @@
+<!-- <p>patients-list works!</p>
+<jw-modal id="add-edit-patient-modal">
+  <app-add-edit-patient [possibleTags]="possibleTags" [modalmode]="modalmode" [insuranceTypes]="insuranceTypes" [currentpatient]="currentpatient" (onChanged)="onChanged($event)"></app-add-edit-patient>
+</jw-modal> -->
+<!-- Основной блок компонента -->
+<div class="patients-list-wrap">
+  <div class="patients-list-top-table">
+    <div class="row patients-list-top">
+      <div class="col-lg-6 d-flex align-items-center justify-content-start">
+        <div class="patients-list-title">
+          <h5>Пациенты</h5>
+        </div>
+        <div class="patients-list-btn">
+          <button tuiButton type="button" size="s" (click)="showPatientDialog(undefined, 'add-edit-patient-modal')">
+            Добавить пациента </button>
+        </div>
+        <div class="patients-list-btn">
+          <button tuiButton size="s" type="button" appearance="primary" (click)="showFilter()">
+            Расширенный
+            поиск
+          </button>
+        </div>
+      </div>
+      <div class="offset-lg-3 col-lg-3 align-items-center ">
+        <div class="patients-list-search">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label></mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+          </mat-form-field>
+          <!-- <tui-input icon="tuiIconSearchLarge" iconAlign="left" tuiHintDirection="bottom-right" class="objectpatient"
+            tuiTextfieldSize="s">
+            Введите ФИО пациента...
+            <input tuiTextfield placeholder="Иванов Иван Иванович" [(ngModel)]="fullnametosearch"
+              (ngModelChange)="onNameChange()" />
+          </tui-input> -->
+        </div>
+      </div>
+    </div>
+    <div class="row patients-list-table">
+      <div class="col-md-12 h-100">
+        <table class="tui-table tui-table__tr_cursor_pointer ">
+          <tbody>
+            <tr class="tui-table__tr tui-table__tr_border_none">
+              <th class="tui-table__th">
+                <span>ФИО пациента</span>
+                <!-- <tui-svg src="tuiIconSortOff" class="patients-list-filter icon" (click)="sortingfio()"></tui-svg> -->
+              </th>
+              <th class="tui-table__th">
+                <span>День Рождения</span>
+                <!-- <tui-svg src="tuiIconSortOff" class="patients-list-filter icon" (click)="sortingbirthday()"></tui-svg> -->
+              </th>
+              <th class="tui-table__th">
+                <span>Пол</span>
+                <!-- <tui-svg src="tuiIconSortOff" class="patients-list-filter icon" (click)="sortinggender()"></tui-svg> -->
+              </th>
+              <th class="tui-table__th">
+                <span>Адрес проживания</span>
+                <!-- <tui-svg src="tuiIconSortOff" class="patients-list-filter icon" (click)="sortingaddress()"></tui-svg> -->
+              </th>
+              <th class="tui-table__th">
+                <span>Телефон</span>
+                <!-- <tui-svg src="tuiIconSortOff" class="patients-list-filter icon" (click)="sortingphone()"></tui-svg> -->
+              </th>
+              <th class="tui-table__th"><span>Тег</span></th>
+              <th class="tui-table__th"><span>Действия</span></th>
+            </tr>
+            <tr class="tui-table__tr tui-table__tr_border_none" *ngFor="let patient of patients">
+              <td class="tui-table__td" (click)="showPatientDialog(patient.id, 'add-edit-patient-modal')">
+                {{patient.fullname}}</td>
+              <td class="tui-table__td">{{patient.birthday}}</td>
+              <td class="tui-table__td">{{patient.gender}}</td>
+              <td class="tui-table__td">{{patient.address}}</td>
+              <td class="tui-table__td">{{patient.phone}}</td>
+              <td class="tui-table__td">
+                <!-- <tui-tag *ngFor="let tag of patient.tags" class="tui-space_right-1" [value]="tag" [autoColor]="true">
+                </tui-tag> -->
+              </td>
+              <td>
+                <!-- <tui-hosted-dropdown (click)="openActions(patient.id!)">
+                  <button tuiIconButton appearance="flat" icon="tuiIconMoreVer" type="button"></button>
+                </tui-hosted-dropdown>
+                <ng-template  [ngIf]="isMenuActions == patient.id">  
+                      <nav class="notification-menu-container">
+                        <ul class="notification-menu-user">
+                          <div style="display:flex;">
+                          <li style="width:80%; margin-left: 8px;"><a><tui-svg  src="tuiIconFolder" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Медкарты</span></a></li>
+                          <li style="width:20%;" (click)="closeActions(patient.id!)"><a><tui-svg  src="tuiIconClose" class="notification-menu-icon"></tui-svg></a></li>
+                          </div>
+                          <li><a><tui-svg src="tuiIconFile" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Случаи обращения</span></a></li>
+                          <li><a><tui-svg src="tuiIconCard" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Услуги</span></a></li>
+                          <li><a><tui-svg src="tuiIconBookmarkLarge" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Обследования</span></a></li>
+                          <li><a><tui-svg src="tuiIconDraft" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Редактировать</span></a></li>
+                          <li><a><tui-svg src="tuiIconCalendar" class="notification-menu-icon"></tui-svg><span class="notification-menu-text">Записать на приём</span></a></li>
+                          <li><a><tui-svg style="color: red;" src="tuiIconTrash" class="notification-menu-icon"></tui-svg><span style="color: red;" class="notification-menu-text">Удалить</span></a></li>
+                      </ul>
+                      </nav>
+              </ng-template> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="patients-list-pagination-wrap">
+      <div class="row patients-list-pagination">
+        <div class="col-md-12 d-flex align-items-center">
+          <!-- <tui-pagination [length]="length" [index]="index" (indexChange)="goToPage($event)"></tui-pagination> -->
+
+          <div class="patients-list-select-page">
+            <span>Показывать по <b>{{value}}</b></span>
+            <!-- <tui-select class="b-form" tuiTextfieldSize="s" [valueContent]="stringify(items)" [(ngModel)]="value">
+              <ng-template tuiDataList>
+                <tui-data-list>
+                  <button *ngFor="let item of items" tuiOption [value]="item.id" (click)="changerowcount(value)">
+                    {{ item.id }}
+                  </button>
+                </tui-data-list>
+              </ng-template>
+            </tui-select> -->
+            <span>на странице</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Модальное окно расширенного поиска -->
+<div class="search-adv" id="search-adv" *ngIf="filterOpened">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <h6 class="search-adv-heading">Расширенный поиск</h6>
+      <button tuiButton size="s" type="button" appearance="secondary" (click)="clearFilter()">Очистить</button>
+      <button class="search-adv-close" tuiIconButton type="button" appearance="icon" icon="tuiIconCloseCircleLarge"
+        (click)="showFilter()"></button>
+    </div>
+    <form class="search-adv-form">
+      <!-- поле фамилия + имя -->
+      <div class="row">
+        <div class="col-md-6">
+          <label class="search-adv-label" for="lastName">Фамилия</label>
+          <!-- <tui-input [(ngModel)]="familynamefilter" name="lastName" tuiTextfieldExampleText="Петров..."
+            tuiTextfieldSize="s" formControlName="lastName">
+          </tui-input> -->
+        </div>
+        <div class="col-md-6">
+          <label class="search-adv-label" for="firstName">Имя</label>
+          <!-- <tui-input name="firstName" tuiTextfieldExampleText="Сергей..." tuiTextfieldSize="s"
+            formControlName="firstName" [(ngModel)]="namefilter">
+          </tui-input> -->
+        </div>
+      </div>
+      <!-- поле отчество и пол -->
+      <div class="row">
+        <div class="col-md-6">
+          <label class="search-adv-label" for="thirdName">Отчество</label>
+          <!-- <tui-input name="thirdName" tuiTextfieldExampleText="Петров..." tuiTextfieldSize="s"
+            formControlName="thirdName" [(ngModel)]="lastnameFilter">
+          </tui-input> -->
+        </div>
+        <div class="col-md-6">
+          <label class="search-adv-label" for="gender">Пол</label>
+          <!-- <tui-select tuiTextfieldSize="s" [formControl]="genderValue" [(ngModel)]="genderFilterStr">
+            Мужской
+            <input tuiTextfield placeholder="Мужской" />
+            <tui-data-list-wrapper *tuiDataList [items]="gender"></tui-data-list-wrapper>
+          </tui-select> -->
+        </div>
+      </div>
+      <!-- поле фильтр по дате рождения -->
+      <div class="row">
+        <div class="col-md-6">
+          <label class="search-adv-label" for="birthDateStart">Дата рождения с:</label>
+          <!-- <tui-input-date name="birthDateStart" tuiTextfieldSize="s" formControlName="birthDateStart" [min]="min"
+            [max]="max" [(ngModel)]="birthdayfrom">
+          </tui-input-date> -->
+        </div>
+        <div class="col-md-6">
+          <label class="search-adv-label" for="birthDateEnd">Дата рождения по:</label>
+          <!-- <tui-input-date name="birthDateEnd" tuiTextfieldSize="s" formControlName="birthDateEnd"
+            [min]="birthdayfrom || min" [items]="dateItems" [(ngModel)]="birthdayto">
+          </tui-input-date> -->
+        </div>
+      </div>
+      <!-- поле телефон + email -->
+      <div class="row">
+        <div class="col-md-6">
+          <label class="search-adv-label" for="birthDate">Телефон</label>
+          <!-- <tui-input-phone formControlName="filterPhone" tuiTextfieldSize="s" [(ngModel)]="phoneFilter">
+            <input name="filterPhone" tuiTextfield autocomplete="tel" />
+          </tui-input-phone> -->
+        </div>
+        <div class="col-md-6">
+          <label class="search-adv-label" for="filterEmail">Email</label>
+          <!-- <tui-input formControlName="filterEmail" tuiTextfieldSize="s" [(ngModel)]="emailFilter">
+            <input name="filterEmail" tuiTextfield type="email" />
+          </tui-input> -->
+        </div>
+      </div>
+      <!-- поле адрес-->
+      <div class="row">
+        <div class="col-md-12">
+          <label class="search-adv-label" for="filterAdress">Адрес проживания</label>
+          <!-- <tui-input tuiTextfieldSize="s" formControlName="filterAdress" [(ngModel)]="addressFilter">
+            <input tuiTextfield type="text" />
+          </tui-input> -->
+        </div>
+      </div>
+      <!-- поле теги-->
+      <div class="row">
+        <div class="col-md-12">
+          <label class="search-adv-label" for="filterTags">Теги</label>
+          <!-- <tui-multi-select tuiTextfieldExampleText="Ignored text" tuiTextfieldSize="s" class="b-form"
+            [formControl]="control" [tuiTextfieldLabelOutside]="true" [editable]="false" [(search)]="filterTags"
+            [(ngModel)]="tagsFilter">
+            Выбирете тег для фильтра...
+            <tui-data-list-wrapper *tuiDataList tuiMultiSelectGroup [items]="filter(filterTags)">
+            </tui-data-list-wrapper>
+          </tui-multi-select> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 d-flex justify-content-between align-items-center">
+          <button class="search-adv-btn" tuiButton size="s" type="button" appearance="primary" (click)="useFilter()">
+            Применить
+          </button>
+          <button class="search-adv-btn" tuiButton size="s" type="button" appearance="secondary" (click)="stopFilter()">
+            Отменить
+          </button>
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>

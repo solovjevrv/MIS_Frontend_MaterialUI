@@ -1,0 +1,349 @@
+.patients-list {
+  &-wrap {
+      height: calc(100vh - 130px);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      position: relative;
+      padding: 20px;
+  }
+  &-top-table {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+  }
+  &-title {
+      margin-right: 14px;
+  }
+  &-table {
+      padding-top: 14px;
+      height: 100%;
+  }
+  &-btn {
+      margin: 0 8px;
+      button {
+          font-weight: 800;
+      }
+  }
+  &-bottom {
+      padding: 14px 0;
+  }
+  &-select-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 20px;
+      span {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 13px;
+          line-height: 20px;
+          margin: 0 8px;
+      }
+  }
+  .tui-table__td, .tui-table__th {
+      padding: 0.5rem 0.25rem;
+      position: relative;
+  }
+  &-filter{
+      margin-left: 6px;
+  }
+}
+
+// расширенный поиск
+.search-adv {
+  width: 35%;
+  min-width: 460px;
+  height: calc(100vh - 130px);
+  padding: 20px 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--tui-base-01);
+  filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.07));
+
+  &-label {
+      margin-bottom: 0.3rem;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      color: var(--tui-base-08);
+  }
+  &-form {
+      .row {
+          margin-top: 20px;
+      }
+  }
+}
+
+.patient {
+  &-row {
+      margin: 0.3rem 0;
+  }
+  &-top-heading {
+    margin-right: 12px;
+  }
+  &-photo {
+    display: inline-block;
+    margin-right: 12px;
+  }
+  &-heading {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--tui-primary);
+    margin-bottom: 0;
+  }
+  &-last_visit {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+      color: var(--tui-text-02);
+
+  }
+  &-bonus-heading {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--tui-text-01);
+    display: block;
+    margin-bottom: 10px;
+  }
+  &-bonus-score {
+    border: 1px solid var(--tui-primary-hover);
+    border-radius: 37px;
+    padding: 6px 32px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: var(--tui-primary-hover);
+  }
+  &-top-btn {
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 8px;
+    width: 100%;
+  }
+  &-label {
+      margin-bottom: 6px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      color: var(--tui-base-08);
+  }
+  &-gender {
+      margin-right: 8px;
+  }
+  &-tags_desc {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--tui-text-02);
+      margin: 6px 8px;
+  }
+  &-documents {
+      border-top: 2px solid var(--tui-base-02);
+  }
+  &-add_document {
+      margin-left: 14px;
+      width: 200px;
+      display: flex;
+  }
+  &-document_type {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+      color: var(--tui-text-02);
+  }
+  &-label {
+      display: block;
+  }
+  &-buttons {
+      margin-top: 20px;
+  }
+  &-btn {
+      margin-right: 20px;
+  }
+
+}
+
+
+// модальное окно
+
+.patient-list-modal {
+  width: 70%;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: var(--tui-base-01);
+  padding: 20px 20px;
+  border-radius: 8px;
+  &-layout {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(27, 31, 59, 0.8);
+      z-index: 10;
+  }
+  &-close {
+      position: absolute;
+      right: 15px;
+      top: 0px;
+    }
+}
+
+
+.notification-menu {
+
+  &-container {
+      background:white;
+      border:1px solid #e5e5e5;
+      border-radius: 5px;
+      // position:absolute;
+      // top:90px;
+      // bottom:0;
+      // height: 200px;
+      // right:0;
+      width:220px;
+      position: absolute;
+      z-index:1000;
+  }
+
+  &-user {
+     margin: 0;
+     padding: 0;
+  }
+ 
+
+  &-container li {
+      position:relative;
+      display:block;
+  }
+
+  &-container li > a {
+      position:relative;
+      display:table;
+      border-collapse:collapse;
+      border-spacing:0;
+      color:rgb(2, 2, 2);
+      font-size: 14px;
+      text-decoration:none;
+      transition:all .1s linear;
+      cursor: pointer;
+  }
+
+  &-container &-icon {
+      position:relative;
+      display:table-cell;
+      width:60px;
+      height:36px;
+      text-align:center;
+      vertical-align:middle;
+      font-size:18px;
+      color:var(--tui-text-01);
+  }
+
+  &-container &-text {
+      position:relative;
+      display:table-cell;
+      vertical-align:middle;
+      width:190px;
+      color:var(--tui-text-01);
+      font-size: 16px;
+  }
+
+  &-container a:hover, &-container a:focus {
+      text-decoration:none;
+  }
+
+  &-container nav {
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      -o-user-select:none;
+      user-select:none;
+    }
+    
+    &-container nav ul, &-container nav li {
+      outline:0;
+      margin:0;
+      padding: 6px 0;
+      transition:all 0.25s linear;
+    }
+    
+    &-container li:hover>a,
+    nav &-container li.active>a {
+      color: var(--tui-primary);
+      font-weight: 700;
+      background-color: var(--tui-secondary);
+      border-radius: 8px;
+      scale: 0.99;
+      transition:all 0.2s linear;
+      margin: 0 12px;
+    }
+    
+    
+    // костыль
+    &-icon {
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  
+}  
+
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}

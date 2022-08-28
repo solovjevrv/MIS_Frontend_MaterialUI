@@ -1,0 +1,75 @@
+<nav class="main-menu" [class.locked]="isLocked">
+  <ul style="display:flex; width: 100%; height: 18%; justify-content: right;">
+    <!-- <li><a href=""></a></li>
+    <li style="display:flex; justify-content: right;">
+      <input [formControl]="isLockedControl" type="checkbox" class="nav-icon">
+    </li> -->
+    <label class="checkbox-google">
+      <input type="checkbox">
+      <span class="checkbox-google-switch"></span>
+    </label>
+  </ul>
+  <ul>
+    <li>
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconFrameLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Рабочий стол</span>
+      </a>
+    </li>
+    <li class="has-subnav"><a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconCalendarLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Расписание</span>
+      </a></li>
+    <li class="has-subnav">
+      <a class="side-menu-item">
+        <div class="nav-icon"><img src="assets/img/patients.svg"></div>
+        <span class="nav-text">Пациенты</span>
+      </a>
+    </li>
+    <li class="has-subnav">
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconCompanyLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Организации</span>
+      </a>
+    </li>
+    <li>
+      <a class="side-menu-item">
+        <div class="nav-icon"><img src="assets/img/chemistry.svg"></div>
+        <span class="nav-text">Лаборатория</span>
+      </a>
+    </li>
+    <li>
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconBookmarkLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Задачи</span>
+      </a>
+    </li>
+    <li>
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconMailLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Чат</span>
+      </a>
+    </li>
+    <li>
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconFileLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Отчеты</span>
+      </a>
+    </li>
+    <li>
+      <a class="side-menu-item">
+        <!-- <tui-svg src="tuiIconSettingsLarge" class="nav-icon"></tui-svg> -->
+        <span class="nav-text">Настройки</span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="logout">
+    <li>
+      <a href="#">
+        <!-- <tui-svg src="tuiIconLogoutLarge" class="nav-icon" (click)="logOut()"></tui-svg> -->
+        <span class="nav-text">Выход</span>
+      </a>
+    </li>
+  </ul>
+</nav>
